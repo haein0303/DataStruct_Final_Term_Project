@@ -11,7 +11,7 @@ using namespace std;
 int main() {
 	
 	int i = 1;
-	char key = 0;;;;//세미콜론은 여러개를 써도 문제가 없어요
+	char key = 0;//세미콜론은 여러개를 써도 문제가 없어요
 	while (1) {
 		BaseUI(i);
 		key = _getch();
