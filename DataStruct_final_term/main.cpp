@@ -18,7 +18,7 @@ int main() {
 		if (key == 0xE0 || key == 0)   //입력받은 값이 확장키 이면
 			key = _getch();            //한번더 입력을 받는다.
 		switch (key)
-		{
+		{ 
 		case KEY_UP:
 			i = (i + 1) % 3 + 1;
 			break;
