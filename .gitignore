@@ -37,3 +37,4 @@ packages
 Server/x64/*
 Server/.vs/*
 Server/packages/*
+.vscode
