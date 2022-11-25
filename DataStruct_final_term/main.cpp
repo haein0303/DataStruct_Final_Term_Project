@@ -9,7 +9,7 @@
 using namespace std;
 
 int main() {
-	
+	//임해인
 	int i = 1;
 	char key = 0;//세미콜론은 여러개를 써도 문제가 없어요
 	while (1) {
