@@ -1,7 +1,6 @@
 
 #pragma _CRT_SECURE_NO_WARNINGS
 
-
 #include "stdafx.h"
 #include "UI.h"
 
@@ -14,6 +13,7 @@ struct MusicData {
 using namespace std;
 
 vector<string> csv_read_row(istream& in, char delimiter);
+
 void FileLoading(istream& in,vector<MusicData> &data);
 
 int main() {
@@ -30,8 +30,31 @@ int main() {
 
 	int i = 1;
 	char key = 0;//세미콜론은 여러개를 써도 문제가 없어요
-	while (0) {
-		BaseUI(i);
+    int UI_num = 0;
+    
+    while (1) {
+        ClearUI();
+        switch (UI_num) 
+        {
+        
+        case UINUM::UI_base:
+            BaseUI(i);
+            
+
+            break;
+        
+        case UINUM::UI_list:
+            ChartUI();
+            int viewcounter = 0;
+
+            for (int i = 0; i < data.size();i++)
+            {   
+                printf("%d. %s - %s \n", data[i].rank + 1, data[i].name , data[i].singer);
+            }
+
+            break;
+        
+        }
 		key = _getch();
 		if (key == 0xE0 || key == 0)   //입력받은 값이 확장키 이면
 			key = _getch();            //한번더 입력을 받는다.
@@ -40,10 +63,20 @@ int main() {
 		case KEY_UP:
 			i = (i + 1) % 3 + 1;
 			break;
+
 		case KEY_DOWN:			
 			i = i % 3 + 1;
-			break;
-		default:
+            break;
+
+        case KEY_ENTER:
+            switch (UI_num)
+            {
+            case UINUM::UI_base:
+                UI_num = i;
+                break;
+            
+            }
+        default:
 			break;
 		}
 
