@@ -2,7 +2,7 @@
 #define MAX_QUEUE_SIZE 5
 #include "stdafx.h"
 
-typedef int element;
+
 typedef struct { // ≈• ≈∏¿‘
     element data[MAX_QUEUE_SIZE];
     int front, rear;

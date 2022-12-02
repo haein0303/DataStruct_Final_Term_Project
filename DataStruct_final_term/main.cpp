@@ -7,14 +7,6 @@
 #include "UI.h"
 #include "priorityQueue.h"
 
-
-
-struct MusicData {
-    int rank = -1;
-    char name[128];
-    char singer[128];
-};
-
 using namespace std;
 
 vector<string> csv_read_row(istream& in, char delimiter);

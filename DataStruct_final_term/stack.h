@@ -1,5 +1,5 @@
 #define MAX_STACK_SIZE 100
-typedef int element;
+#include "stdafx.h"
 
 typedef struct {
 	element data[MAX_STACK_SIZE];

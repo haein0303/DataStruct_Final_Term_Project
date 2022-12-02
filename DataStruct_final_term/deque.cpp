@@ -23,7 +23,7 @@ int is_full(DequeType* q)
     return ((q->rear + 1) % MAX_QUEUE_SIZE == q->front);
 }
 // 원형큐 출력 함수
-void deque_print(DequeType* q)
+/*void deque_print(DequeType* q)
 {
     printf("DEQUE(front=%d rear=%d) = ", q->front, q->rear);
     if (!que_is_empty(q)) {
@@ -36,7 +36,7 @@ void deque_print(DequeType* q)
         } while (i != q->front);
     }
     printf("\n");
-}
+}*/
 
 void add_rear(DequeType* q, element item)
 {
