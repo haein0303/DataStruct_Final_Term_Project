@@ -27,6 +27,9 @@
     <ClCompile Include="deque.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="priorityQueue.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -39,6 +42,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="deque.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="priorityQueue.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

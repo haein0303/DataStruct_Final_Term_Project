@@ -3,9 +3,12 @@
 
 #define MAX_ELEMENT 400 
 
+
 typedef struct {
 	int key;
 } element;
+
+
 
 typedef struct {
 	element heap[MAX_ELEMENT];
