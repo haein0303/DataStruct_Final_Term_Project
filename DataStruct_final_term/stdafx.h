@@ -10,6 +10,8 @@
 #include <string>
 #include <algorithm>
 #include <chrono>
+#include <vector>
+#include <fstream>
 
 //윈도우즈 헤더
 #include <Windows.h>
