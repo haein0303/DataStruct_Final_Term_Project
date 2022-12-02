@@ -14,36 +14,13 @@ struct MusicData {
 using namespace std;
 
 vector<string> csv_read_row(istream& in, char delimiter);
-
+void FileLoading(istream& in,vector<MusicData> &data);
 
 int main() {
     vector<MusicData> data;
-	ifstream file("Top200Chart.csv");
-
-	if (!file) {
-		cout << "파일 로딩 실패" << endl;
-		return 0;
-	}
-	while (file.good())
-	{
-        MusicData tmp;
-		vector<string> row = csv_read_row(file, ',');
-        for (int i = 0, leng = row.size(); i < leng; i++) {
-            cout << "[" << row[i] << "]" << "\t";
-            switch (i) {
-            case 0:
-                tmp.rank = data.size();
-                break;
-            case 1:
-                strcpy_s(tmp.singer, row[i].c_str());
-                break;
-            case 2:
-                strcpy_s(tmp.name, row[i].c_str());
-            }
-        }			
-		cout << endl;
-        data.push_back(tmp);
-	}
+	ifstream file("Top200Chart.csv");	
+	
+    FileLoading(file, data);
 
     cout << data.size() << endl;
 
@@ -112,5 +89,35 @@ vector<string> csv_read_row(istream& in, char delimiter)
         {
             ss << c;
         }
+    }
+}
+
+void FileLoading(istream& file, vector<MusicData>& data)
+{
+
+    if (!file) {
+        cout << "파일 로딩 실패" << endl;
+        return;
+    }
+
+    while (file.good())
+    {
+        MusicData tmp;
+        vector<string> row = csv_read_row(file, ',');
+        for (int i = 0, leng = row.size(); i < leng; i++) {
+            //cout << "[" << row[i] << "]" << "\t";
+            switch (i) {
+            case 0:
+                tmp.rank = data.size();
+                break;
+            case 1:
+                strcpy_s(tmp.singer, row[i].c_str());
+                break;
+            case 2:
+                strcpy_s(tmp.name, row[i].c_str());
+            }
+        }
+        cout << endl;
+        data.push_back(tmp);
     }
 }
