@@ -1,9 +1,12 @@
 
+
 #pragma _CRT_SECURE_NO_WARNINGS
 
-
+#include "stack.h"
 #include "stdafx.h"
 #include "UI.h"
+
+
 
 struct MusicData {
     int rank = -1;
@@ -17,6 +20,9 @@ vector<string> csv_read_row(istream& in, char delimiter);
 void FileLoading(istream& in,vector<MusicData> &data);
 
 int main() {
+
+    
+    
     vector<MusicData> data;
 	ifstream file("Top200Chart.csv");	
 	
@@ -47,7 +53,7 @@ int main() {
 			break;
 		}
 
-	}
+	} 
 }
 
 
@@ -120,4 +126,7 @@ void FileLoading(istream& file, vector<MusicData>& data)
         cout << endl;
         data.push_back(tmp);
     }
-}
+} 
+
+
+
