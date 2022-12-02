@@ -38,3 +38,5 @@ Server/x64/*
 Server/.vs/*
 Server/packages/*
 .vscode
+*.vcxproj
+DataStruct_final_term/DataStruct_final_term.vcxproj

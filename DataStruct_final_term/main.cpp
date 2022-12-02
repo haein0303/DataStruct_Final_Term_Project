@@ -27,24 +27,70 @@ int main() {
         cout << a.rank << " : " << a.singer << " : " << a.name << endl;
     }
 
-	int i = 1;
+	
 	char key = 0;//세미콜론은 여러개를 써도 문제가 없어요
-	while (0) {
-		BaseUI(i);
+    int UI_num = 0;
+    int _i_ingame_selected = 1;
+    int viewcounter = 0;
+    while (1) {
+        
+        ClearUI();
+        switch (UI_num)
+        {
+
+        case UINUM::UI_base:
+            BaseUI(_i_ingame_selected);
+            switch (key)
+            {
+            case KEY_UP:
+                _i_ingame_selected = (_i_ingame_selected + 1) % 3 + 1;
+                break;
+            case KEY_DOWN:
+                _i_ingame_selected = _i_ingame_selected % 3 + 1;
+                break;
+            case KEY_ENTER:
+                UI_num = _i_ingame_selected;
+                break;
+            default:
+                break;
+            }
+            break;
+        case UINUM::UI_list:
+            ChartUI_top();
+            
+
+            for (int i = viewcounter; i < viewcounter+10; i++)
+            {
+                printf("%d. %s - %s \n", data[i].rank + 1, data[i].name, data[i].singer);
+            }
+
+            switch (key)
+            {
+            case KEY_UP:
+                if (data.size() > (viewcounter + 10)) {
+                    viewcounter++;
+                }                
+                break;
+            case KEY_DOWN:
+                if (0 < viewcounter) {
+                    viewcounter--;
+                }
+                break;
+            case KEY_ENTER:
+                UI_num = _i_ingame_selected;
+                break;
+            default:
+                break;
+            }
+
+            break;
+
+        }
+       
 		key = _getch();
 		if (key == 0xE0 || key == 0)   //입력받은 값이 확장키 이면
 			key = _getch();            //한번더 입력을 받는다.
-		switch (key)
-		{ 
-		case KEY_UP:
-			i = (i + 1) % 3 + 1;
-			break;
-		case KEY_DOWN:			
-			i = i % 3 + 1;
-			break;
-		default:
-			break;
-		}
+		
 
 	} 
 }

@@ -12,4 +12,4 @@ void BaseUI(int);
 //UI를 클리어합니다
 void ClearUI();
 
-void ChartUI();
+void ChartUI_top();
