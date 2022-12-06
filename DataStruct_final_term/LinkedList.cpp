@@ -1,6 +1,8 @@
+
 #include "LinkedList.h"
 
 
+DListNode* current;
 
 void init(DListNode* phead)
 {
@@ -32,7 +34,7 @@ void print_dlist2(DListNode* phead)
 void dinsert(DListNode* before, element data)
 {
 	DListNode* newnode = (DListNode*)malloc(sizeof(DListNode));
-	strcpy((char*)newnode->data, data);
+	strcpy((char*)newnode->data.name, data.name);//문자열 복사하는 명령어
 	newnode->llink = before;
 	newnode->rlink = before->rlink;
 	before->rlink->llink = newnode;

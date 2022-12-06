@@ -1,7 +1,3 @@
-
-
-#pragma _CRT_SECURE_NO_WARNINGS
-
 #include "stack.h"
 #include "stdafx.h"
 #include "UI.h"
@@ -10,6 +6,9 @@
 #include "LinkedList.h"
 
 using namespace std;
+
+
+extern DListNode* current;
 
 vector<string> csv_read_row(istream& in, char delimiter);
 void FileLoading(istream& in,vector<MusicData> &data);
@@ -205,16 +204,18 @@ int main(void)
     char ch;
     char song[128];
     int select;
+    element tmp;
     DListNode* head = (DListNode*)malloc(sizeof(DListNode));
     init(head);
     while (1) {
         printf("할일(1: 음악추가, 2: 음악재생, 3: 재생목록보기)");
-        scanf("%d", &select);
+        scanf(" %d", &select);
         switch (select) {
         case 1:
             printf("추가할 노래제목을 입력하시오: ");
             scanf("%s", song);
-            dinsert(head, song);
+            strcpy(tmp.name, song);
+            dinsert(head, tmp);
             break;
         case 2:
             do {

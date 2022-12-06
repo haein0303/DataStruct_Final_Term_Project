@@ -7,8 +7,6 @@ typedef struct DListNode {
 	struct DListNode* rlink;
 } DListNode;
 
-DListNode* current;
-
 void print_dlist1(DListNode* phead);
 
 void print_dlist2(DListNode* phead);

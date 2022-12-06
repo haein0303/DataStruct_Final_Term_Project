@@ -1,5 +1,6 @@
 #pragma once
 
+#define _CRT_SECURE_NO_WARNINGS
 //기본 헤더
 #include <stdio.h>
 #include <iostream>
