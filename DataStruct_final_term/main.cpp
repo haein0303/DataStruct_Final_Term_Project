@@ -6,13 +6,15 @@
 #include "stdafx.h"
 #include "UI.h"
 #include "priorityQueue.h"
+#include "deque.h"
+#include "LinkedList.h"
 
 using namespace std;
 
 vector<string> csv_read_row(istream& in, char delimiter);
 void FileLoading(istream& in,vector<MusicData> &data);
 
-int main() {
+/*int main() {
 
     
     
@@ -32,7 +34,7 @@ int main() {
     int UI_num = 0;
     int _i_ingame_selected = 1;
     int viewcounter = 0;
-    while (1) {
+    while (0) {
         
         ClearUI();
         switch (UI_num)
@@ -93,7 +95,7 @@ int main() {
 		
 
 	} 
-}
+}*/
 
 
 vector<string> csv_read_row(istream& in, char delimiter)
@@ -167,5 +169,80 @@ void FileLoading(istream& file, vector<MusicData>& data)
     }
 } 
 
+/*int main(void)
+{
+    DequeType queue;
+    int select;
+    char song[128];
+    element data;
+    init_deque(&queue);
+    while (1) {
+        printf("재생목록 추가가능 개수 : %d\n",MAX_QUEUE_SIZE);
+        printf("할일(1: 음악추가, 2: 음악재생, 3: 재생목록보기)");
+        scanf("%d", &select);
+        switch (select) {
+        case 1:
+            printf("추가할 노래제목을 입력하시오: ");
+            scanf("%s", song);
+            strcpy(data.name, song);
+            add_rear(&queue, data);
+            break;
+        case 2:
+            printf("노래가 재생되었습니다.");
+            delete_front(&queue);
+            break;
+        case 3:
+            deque_print(&queue);
+            break;
+        }
+        
 
+    }
+}*/
+
+int main(void)
+{
+    char ch;
+    char song[128];
+    int select;
+    DListNode* head = (DListNode*)malloc(sizeof(DListNode));
+    init(head);
+    while (1) {
+        printf("할일(1: 음악추가, 2: 음악재생, 3: 재생목록보기)");
+        scanf("%d", &select);
+        switch (select) {
+        case 1:
+            printf("추가할 노래제목을 입력하시오: ");
+            scanf("%s", song);
+            dinsert(head, song);
+            break;
+        case 2:
+            do {
+                current = head->rlink;
+                print_dlist1(head);
+                printf("\n명령어를 입력하시오(<, >, q): ");
+                ch = getchar();
+                if (ch == '<') {
+                    current = current->llink;
+                    if (current == head)
+                        current = current->llink;
+                }
+                else if (ch == '>') {
+                    current = current->rlink;
+                    if (current == head)
+                        current = current->rlink;
+                }
+                print_dlist1(head);
+                getchar();
+            } while (ch != 'q');
+
+        case 3:
+            current = head->rlink;
+            print_dlist2(head);
+        }
+        
+    }
+    free(head);
+
+}
 

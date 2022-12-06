@@ -1,5 +1,5 @@
 #pragma once
-#define MAX_QUEUE_SIZE 5
+#define MAX_QUEUE_SIZE 100
 #include "stdafx.h"
 
 
