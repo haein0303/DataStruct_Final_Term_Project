@@ -10,25 +10,31 @@ using namespace std;
 
 extern DListNode* current;
 
+
 vector<string> csv_read_row(istream& in, char delimiter);
 void FileLoading(istream& in,vector<MusicData> &data);
+int listTest();
 
-/*int main() {
+vector<MusicData> v_data;
 
+int main() {   
     
     
-    vector<MusicData> data;
 	ifstream file("Top200Chart.csv");	
 	
-    FileLoading(file, data);
+    FileLoading(file, v_data);
 
-    cout << data.size() << endl;
+    cout << v_data.size() << endl;
 
-    for (MusicData a : data) {
+    for (MusicData a : v_data) {
         cout << a.rank << " : " << a.singer << " : " << a.name << endl;
     }
 
-	
+    //MusicData 구조체배열[늘려가면서 쓸수있게 vector];
+    //MusicData data[200];
+    
+
+
 	char key = 0;//세미콜론은 여러개를 써도 문제가 없어요
     int UI_num = 0;
     int _i_ingame_selected = 1;
@@ -58,17 +64,17 @@ void FileLoading(istream& in,vector<MusicData> &data);
             break;
         case UINUM::UI_list:
             ChartUI_top();
-            
+           
 
             for (int i = viewcounter; i < viewcounter+10; i++)
             {
-                printf("%d. %s - %s \n", data[i].rank + 1, data[i].name, data[i].singer);
+                printf("%d. %s - %s \n", v_data[i].rank + 1, v_data[i].name, v_data[i].singer);
             }
 
             switch (key)
             {
             case KEY_UP:
-                if (data.size() > (viewcounter + 10)) {
+                if (v_data.size() > (viewcounter + 10)) {
                     viewcounter++;
                 }                
                 break;
@@ -94,7 +100,8 @@ void FileLoading(istream& in,vector<MusicData> &data);
 		
 
 	} 
-}*/
+    listTest();
+}
 
 
 vector<string> csv_read_row(istream& in, char delimiter)
@@ -168,10 +175,11 @@ void FileLoading(istream& file, vector<MusicData>& data)
     }
 } 
 
-int main(void)
+int listTest()
 {
+    
     char ch;
-    char song[128];
+    char song[128]; 
     int select;
     element tmp;
     DListNode* head = (DListNode*)malloc(sizeof(DListNode));
@@ -181,11 +189,11 @@ int main(void)
         scanf(" %d", &select);
         switch (select) {
         case 1:
-            printf("추가할 노래제목을 입력하시오: ");
+            printf("추가할 노래제목을 입력하시오: "); 
             scanf("%s", song);
             int i;
             for (i = 0;i < 200;i++) {
-                if (song == ) {//노래리스트 비교하기
+                if (strcmp(song,v_data[i].name)) {//노래리스트 비교하기
                     strcpy(tmp.name, song);
                     dinsert(head, tmp);
                     printf("%s이(가) 재생목록에 추가되었습니다.\n", &song);
@@ -214,16 +222,17 @@ int main(void)
                 print_dlist1(head);
                 getchar();
             } while (ch != 'q');
-
+            break;
         case 3:
             current = head->rlink;
             print_dlist2(head);
+            break;
         default:
+            while (getchar() != '\n'); //잘못입력하면 버퍼 빼줘
             printf("옵션을 잘못 선택하셨습니다.\n");
-        }
-        
+            break;
+        }        
     }
     free(head);
-
 }
 

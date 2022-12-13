@@ -15,11 +15,12 @@ void print_dlist1(DListNode* phead)
 	DListNode* p;
 	for (p = phead->rlink; p != phead; p = p->rlink) {
 		if (p == current) {
-			printf("[ %s ] <= 재생중인 노래\n ", p->data);
+			printf("[ %s ] <= 재생중인 노래\n ", p->data.name);
+			//std::cout << p->data.name << "<= 재생중인 노래" << std::endl;
 			p->data.key++;
 		}
 		else
-			printf("[ %s ] \n", p->data);
+			printf("[ %s ] \n", p->data.name);
 	}
 	printf("\n");
 }
@@ -28,7 +29,7 @@ void print_dlist2(DListNode* phead)
 {
 	DListNode* p;
 	for (p = phead->rlink; p != phead; p = p->rlink) {
-		printf("[ %s ]\n ", p->data);
+		printf("[ %s ]\n ", p->data.name);
 	}
 	printf("\n");
 }
