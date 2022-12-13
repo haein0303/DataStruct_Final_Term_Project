@@ -168,37 +168,6 @@ void FileLoading(istream& file, vector<MusicData>& data)
     }
 } 
 
-/*int main(void)
-{
-    DequeType queue;
-    int select;
-    char song[128];
-    element data;
-    init_deque(&queue);
-    while (1) {
-        printf("재생목록 추가가능 개수 : %d\n",MAX_QUEUE_SIZE);
-        printf("할일(1: 음악추가, 2: 음악재생, 3: 재생목록보기)");
-        scanf("%d", &select);
-        switch (select) {
-        case 1:
-            printf("추가할 노래제목을 입력하시오: ");
-            scanf("%s", song);
-            strcpy(data.name, song);
-            add_rear(&queue, data);
-            break;
-        case 2:
-            printf("노래가 재생되었습니다.");
-            delete_front(&queue);
-            break;
-        case 3:
-            deque_print(&queue);
-            break;
-        }
-        
-
-    }
-}*/
-
 int main(void)
 {
     char ch;
@@ -208,14 +177,23 @@ int main(void)
     DListNode* head = (DListNode*)malloc(sizeof(DListNode));
     init(head);
     while (1) {
-        printf("할일(1: 음악추가, 2: 음악재생, 3: 재생목록보기)");
+        printf("할일(1: 음악추가, 2: 음악재생, 3: 재생목록보기) : ");
         scanf(" %d", &select);
         switch (select) {
         case 1:
             printf("추가할 노래제목을 입력하시오: ");
             scanf("%s", song);
-            strcpy(tmp.name, song);
-            dinsert(head, tmp);
+            int i;
+            for (i = 0;i < 200;i++) {
+                if (song == ) {//노래리스트 비교하기
+                    strcpy(tmp.name, song);
+                    dinsert(head, tmp);
+                    printf("%s이(가) 재생목록에 추가되었습니다.\n", &song);
+                    break;
+                }
+            }
+            if(i==200)
+                printf("%s이(가) 노래리스트에 없습니다.\n", &song);
             break;
         case 2:
             do {
@@ -240,6 +218,8 @@ int main(void)
         case 3:
             current = head->rlink;
             print_dlist2(head);
+        default:
+            printf("옵션을 잘못 선택하셨습니다.\n");
         }
         
     }
