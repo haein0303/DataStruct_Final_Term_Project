@@ -6,6 +6,12 @@
 void show_search(vector<MusicData>& data) {
 	//set
 	//set은 밸런스 이진 트리를 기반으로 하는 콘테이너 입니다.
+	//set을 사용한 이유
+	// set은 중복된 데이터를 가지지 않습니다.
+	// 연산자 오버로딩을 통해서 이름을 기준으로 중복이 없도록 설정하였습니다.
+	// 이름을 기준으로 데이터를 가지고 정렬하기 때문에
+	// 이름을 통해서 검색하는 속도를 log타임을 가져갈 수 있습니다.
+	// 
 
 	set < MusicData> _data;
 	int _loadingBar = 0;
@@ -40,23 +46,7 @@ void show_search(vector<MusicData>& data) {
 	if (iter != _data.end()) {
 		cout << "[ " << line << " ] 의 검색결과 입니다\n" << endl;
 		cout << "제목 : " << iter->name << endl;
-		cout << "가수 : " << iter->singer << endl;
-		cout << "수익 : " << iter->evenue << endl;
-		cout << "===== 지역별 최고 순위=====" << endl;
-		cout << "US : ";
-		if (iter->rank[US] != 0) {
-			 cout << iter->rank[US];
-		}
-		else {
-			cout << " -";
-		}
-		cout << " || UK : ";
-		if (iter->rank[UK] != 0) {
-			cout << iter->rank[UK];
-		}
-		else {
-			cout << " -";
-		}
+		cout << "가수 : " << iter->singer << endl;		
 	}
 	else {
 		cout << "찾는 데이터가 없습니다" << endl;

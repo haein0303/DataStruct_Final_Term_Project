@@ -24,3 +24,5 @@ enum COUNTRY {
 };
 
 int calcRank(int sort, const MusicData& data);
+
+void makeVeiwCounts(vector<MusicData> &data);

@@ -48,11 +48,18 @@ typedef struct MusicData {
     }
 }element;
 
+struct myList {
+    int index[128];
+    char name[128];
+};
+
 //BASIC UI를 제외한 나머지 UI의 번호들입니다.
 enum UI {
     UI_find,
-	UI_rank,
+    UI_rank,
     UI_Mylist,
+    UI_recommend,
+    UI_makeViewsCount,
 	UI_counter //마지막 enum 값을 활용해서 전체 갯수를 쉽게 구할 수 있습니다.
 };
 

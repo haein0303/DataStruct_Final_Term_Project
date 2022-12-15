@@ -18,6 +18,10 @@
 // 즉
 // 우리가 다루는 것은 데이터의 인덱스만을 다루고
 // 그 인덱스를 통해서 그때그때 데이터를 가져다가 씁니다. 
+// 
+// 물론 모든 부분을 그렇게 하진 않을꺼고, 뭔가 지속적으로 저장해두고 활용할 부분들만 그렇게 쓸겁니다
+// 굳이 검색이나, 정렬같은걸 할때는 임시로 메모리를 할당 받아서 쓰기 때문에
+// 공간 문제만 없으면 굳이 어렵게 데이터를 타고 가서 연산량을 늘릴 필요는 없죠.
 //
 //=============================================
 
@@ -28,13 +32,15 @@
 #include "fileLoader.h"
 #include "Show.h"
 #include "util.h"
-
-//C++ 17부터 return을 안쓰는것이 표준 문법이 되었습니다.
-//cpp파일로 생성하신다면, 굳이 안써도 별도의 에러가 나지 않습니다.
+#include "musicList.h"
+#include "DList.h"
+#include "playList.h"
 
 int main() {
 	int scene_select = 0;
 	vector<MusicData> _m_data; //vector는 동적큐와 유사한 자료구조입니다. 
+	vector<DList> _playList; //재생목록입니다.
+
 
 	//파일 로딩
 	if (!read_data("chart2000.csv", _m_data)) {//파일명과 입력받을 저장공간을 레퍼런스를 인자로 넣습니다.
@@ -54,11 +60,15 @@ int main() {
 			showrank(_m_data);
 			break;
 		case UI::UI_Mylist:
-
+			play_list_main(_playList,_m_data);
+			break;
+		case UI::UI_recommend:
+			musicListmain(_m_data);
+			break;
+		case UI::UI_makeViewsCount:
+			makeVeiwCounts(_m_data);
 			break;
 		}
 	}
-
 	
-
 }
