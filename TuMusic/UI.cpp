@@ -1,6 +1,7 @@
 
 #include "stdafx.h"
 #include "UI.h"
+#include "util.h"
 
 void ChartUI_top(){
 	printf(" _____  _   _  _   _____  ___             _       \n");
@@ -30,14 +31,15 @@ int basicUI() {
 
 	vector<string> UI_text;//UI 리스트의 이름을 저장합니다.
 	
-	UI_text.push_back("top200");
-	UI_text.push_back("재생목록");
+	UI_text.push_back("노래검색");
+	UI_text.push_back("랭킹보기");
 	UI_text.push_back("test");
 	UI_text.push_back("test");
 
 	while (1) {
 		ClearUI();
 		ChartUI_top();
+		
 
 		switch (key) {
 		case KEY_UP:
@@ -50,6 +52,7 @@ int basicUI() {
 			return select;
 			break;
 		case KEY_ESC:
+			cout << "이용해주셔서 감사합니다." << endl;
 			return -1;
 			break;
 		}
@@ -63,7 +66,9 @@ int basicUI() {
 			}
 			cout << "]" << UI_text[i] << endl;
 		}
-		cout << "select : " << select << endl;
+		cout << "esc 종료" << endl;
+		//cout << "select : " << select << endl;
+
 		key = _getch();
 		if (key == -32) { //입력받은 값이 확장키 이면
 			key = _getch(); //한번더 입력을 받는다.

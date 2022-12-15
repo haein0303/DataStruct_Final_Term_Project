@@ -24,7 +24,10 @@
     <ClCompile Include="fileLoader.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ShowRank.cpp">
+    <ClCompile Include="Show.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="util.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,7 +41,10 @@
     <ClInclude Include="fileLoader.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ShowRank.h">
+    <ClInclude Include="Show.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="util.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "fileLoader.h"
+#include "util.h"
 
 int read_data(const char* filename, vector<MusicData> &data) {
 
@@ -30,22 +31,22 @@ int read_data(const char* filename, vector<MusicData> &data) {
                 tmp.evenue = stod(row[i], nullptr);
                 break;
             case 5:
-                if (row[i][0] != '-') tmp.us_rank = stoi(row[i]);
+                if (row[i][0] != '-') tmp.rank[COUNTRY::US] = stoi(row[i]);
                 break;
             case 6:
-                if (row[i][0] != '-') tmp.uk_rank = stoi(row[i]);
+                if (row[i][0] != '-') tmp.rank[COUNTRY::UK] = stoi(row[i]);
                 break;
             case 7:
-                if (row[i][0] != '-') tmp.de_rank = stoi(row[i]);
+                if (row[i][0] != '-') tmp.rank[COUNTRY::DE] = stoi(row[i]);
                 break;
             case 8:
-                if (row[i][0] != '-') tmp.fr_rank = stoi(row[i]);
+                if (row[i][0] != '-') tmp.rank[COUNTRY::FR] = stoi(row[i]);
                 break;
             case 9:
-                if (row[i][0] != '-') tmp.ca_rank = stoi(row[i]);
+                if (row[i][0] != '-') tmp.rank[COUNTRY::CA] = stoi(row[i]);
                 break;
             case 10:
-                if (row[i][0] != '-') tmp.au_rank = stoi(row[i]);
+                if (row[i][0] != '-') tmp.rank[COUNTRY::AU] = stoi(row[i]);
                 break;
             }
         }

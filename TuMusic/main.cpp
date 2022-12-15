@@ -26,6 +26,8 @@
 #include "stdafx.h"
 #include "UI.h"
 #include "fileLoader.h"
+#include "Show.h"
+#include "util.h"
 
 //C++ 17부터 return을 안쓰는것이 표준 문법이 되었습니다.
 //cpp파일로 생성하신다면, 굳이 안써도 별도의 에러가 나지 않습니다.
@@ -45,12 +47,18 @@ int main() {
 		scene_select = basicUI();
 		
 		switch (scene_select) {
+		case UI::UI_find:
+			show_search(_m_data);
+			break;
 		case UI::UI_rank:
+			showrank(_m_data);
+			break;
+		case UI::UI_Mylist:
 
 			break;
 		}
 	}
 
-
+	
 
 }
