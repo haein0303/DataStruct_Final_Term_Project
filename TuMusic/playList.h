@@ -1,3 +1,3 @@
 #pragma once
 
-void play_list_main(vector<DList>& playList, vector<MusicData>& data);
+void play_list_main(vector<CList>& playList, vector<MusicData>& data);
