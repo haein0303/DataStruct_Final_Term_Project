@@ -51,19 +51,21 @@ void play_list_main(vector<CList> &playList,vector<MusicData> &data) {
 			break;
 		case 1:			
 			fflush(stdin);
-			cout << "추가할 노래 이름 입력 : ";
+			cout << "추가할 노래 이름 입력 : " << endl;
 			cin >> input_name;
 
 			strcpy_s(tmp.name, sizeof(tmp.name), input_name.c_str());
 			
-			iter = find(data.begin(), data.end(), tmp);
-			//cout << iter - data.begin()-1  << " " << iter - data.end() << " " << iter->name << endl;
-			if (iter != data.begin()) {
-				playList[input].insert(0, iter - data.begin()-1);
-				cout << "정상적으로 추가되었습니다" << endl;
-			}
-			else {
+			iter = find_if(data.begin(), data.end(), [input_name](const MusicData& a) {
+				return a.name == input_name;
+				});
+			
+			if (iter == data.end()) {
 				cout << "노래가 없습니다." << endl;
+			}
+			else {				
+				playList[input].insert(0, iter - data.begin());
+				cout << "정상적으로 추가되었습니다" << endl;
 			}	
 
 			key = _getch();
