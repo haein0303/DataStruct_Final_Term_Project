@@ -25,6 +25,7 @@ void play_list_main(vector<CList> &playList,vector<MusicData> &data) {
 	int input;
 	cin >> input;
 	vector<int> v_index_list;
+	char key;
 	if (input >= 0 && playList.size() > input) {//이상한거 입력하는 양반들 있어요
 		cout << "  ========= 재생목록 ========" << endl;
 		cout << "  = " << playList[input].listName << " =  " << endl;
@@ -35,7 +36,7 @@ void play_list_main(vector<CList> &playList,vector<MusicData> &data) {
 			}
 
 		cout << endl;
-		cout << "동작선택 1:노래추가 2:삭제" << endl;
+		cout << "동작선택 0:돌아가기 1:노래추가 2:삭제" << endl;
 		int input2;
 		cin >> input2;
 
@@ -43,24 +44,34 @@ void play_list_main(vector<CList> &playList,vector<MusicData> &data) {
 		MusicData tmp;
 		int num;
 		int i = 0;
+		string input_name;
+		ClearUI();
 		switch (input2) {
-		case 1:
-			ClearUI();
-			
-			char input_name[128];
+		case 0:
+			break;
+		case 1:			
+			fflush(stdin);
 			cout << "추가할 노래 이름 입력 : ";
 			cin >> input_name;
 
-			strcpy_s(tmp.name, sizeof(tmp.name), input_name);
+			strcpy_s(tmp.name, sizeof(tmp.name), input_name.c_str());
 			
 			iter = find(data.begin(), data.end(), tmp);
-			if (iter != data.end()) {
-				playList[input].insert(0, iter - data.begin());
+			//cout << iter - data.begin()-1  << " " << iter - data.end() << " " << iter->name << endl;
+			if (iter != data.begin()) {
+				playList[input].insert(0, iter - data.begin()-1);
+				cout << "정상적으로 추가되었습니다" << endl;
 			}
-			
+			else {
+				cout << "노래가 없습니다." << endl;
+			}	
+
+			key = _getch();
+			if (key == -32) { //입력받은 값이 확장키 이면
+				key = _getch(); //한번더 입력을 받는다.
+			}
 			break;
-		case 2:
-			
+		case 2:			
 			cout << "삭제할 노래 번호 입력 : ";
 			
 			for(const int& a:v_index_list){				
@@ -69,7 +80,10 @@ void play_list_main(vector<CList> &playList,vector<MusicData> &data) {
 			cin >> num;		
 			
 			playList[input].Delete(num);
-
+			key = _getch();
+			if (key == -32) { //입력받은 값이 확장키 이면
+				key = _getch(); //한번더 입력을 받는다.
+			}
 			break;
 		default:
 			cout << "값이 잘못입력되었습니다";
@@ -82,11 +96,8 @@ void play_list_main(vector<CList> &playList,vector<MusicData> &data) {
 		return;
 	}
 
-	char key;
-	key = _getch();
-	if (key == -32) { //입력받은 값이 확장키 이면
-		key = _getch(); //한번더 입력을 받는다.
-	}
+	
+	
 }
 
 void make_dummy_playList(vector<CList>& playList, vector<MusicData>& data) {
