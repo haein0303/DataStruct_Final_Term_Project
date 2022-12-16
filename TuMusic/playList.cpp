@@ -74,7 +74,7 @@ void play_list_main(vector<CList> &playList,vector<MusicData> &data) {
 			}
 			break;
 		case 2:			
-			cout << "삭제할 노래 번호 입력 : ";
+			cout << "삭제할 노래 번호 입력 : " << endl;
 			
 			for(const int& a:v_index_list){				
 				cout << i++ << " : "<<data[a].name << endl;
