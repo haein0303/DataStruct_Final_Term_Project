@@ -5,6 +5,9 @@
 #include "playList.h"
 
 void play_list_main(vector<CList> &playList,vector<MusicData> &data) {
+	
+	string input_name;
+
 	if (playList.size() == 0) {//플레이 리스트가 없는 상태
 		cout << "플레이리스트가 없습니다. 플레이리스트를 생성합니다" << endl;
 		cout << "플레이리스트 명을 입력하세요 : ";
@@ -44,16 +47,17 @@ void play_list_main(vector<CList> &playList,vector<MusicData> &data) {
 		MusicData tmp;
 		int num;
 		int i = 0;
-		string input_name;
+		
 		ClearUI();
+		cin.ignore();
 		switch (input2) {
 		case 0:
 			break;
 		case 1:			
-			fflush(stdin);
+			
 			cout << "추가할 노래 이름 입력 : ";
-			cin >> input_name;
-
+			getline(cin,input_name);
+			cout << input_name << endl;
 			strcpy_s(tmp.name, sizeof(tmp.name), input_name.c_str());
 			
 			iter = find(data.begin(), data.end(), tmp);
@@ -72,7 +76,7 @@ void play_list_main(vector<CList> &playList,vector<MusicData> &data) {
 			}
 			break;
 		case 2:			
-			cout << "삭제할 노래 번호 입력 : ";
+			cout << "삭제할 노래 번호 입력 : " << endl;
 			
 			for(const int& a:v_index_list){				
 				cout << i++ << " : "<<data[a].name << endl;

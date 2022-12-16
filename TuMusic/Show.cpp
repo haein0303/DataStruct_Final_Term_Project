@@ -66,7 +66,7 @@ void show_seach_bst(vector<MusicData>& data) {
 	for (const auto& a : data) {
 		bst.insert_BST(a.name);
 	}
-	cout << "목록에 노래가 있는지 검색합니다.            " << endl;
+	cout << "목록에 노래가 있는지 검색합니다." << endl;
 	cout << "원하시는 노래를 입력해주세요 : ";
 	string input;
 	getline(cin, input);
