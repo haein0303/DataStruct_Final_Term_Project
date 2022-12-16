@@ -101,12 +101,24 @@ void CList::clear_list()
 
 
 //---------------------------------------------------------------------
-void CList::print_list(char* msg)
+void CList::print_list()
 {
 	Node* p;
-	printf("%s[%2d]: ", msg, size());
+	//printf("%s[%2d]: ", msg, size());
 	for (p = get_head(); p != NULL; p = p->link)
 		printf("%2d ", p->data);
 	printf("\n");
 }
 
+vector<int> CList::get_list()
+{	
+	
+	Node* p;	
+	vector<int> v_tmp;
+	
+	for (p = get_head(); p != NULL; p = p->link){
+		v_tmp.push_back(p->data);
+	}
+		
+	return v_tmp;
+}

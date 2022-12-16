@@ -34,7 +34,9 @@ public:
 	void insert(int pos, ELEMENT val);
 	void Delete(int pos);
 	void clear_list();
-	void print_list(char* msg);
+	void print_list();
+
+	vector<int> get_list();
 	
 
 
