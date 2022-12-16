@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Show.h"
 #include "util.h"
+#include "BST.h"
 
 
 void show_search(vector<MusicData>& data) {
@@ -13,7 +14,7 @@ void show_search(vector<MusicData>& data) {
 	// 이름을 통해서 검색하는 속도를 log타임을 가져갈 수 있습니다.
 	// 
 
-	set < MusicData> _data;
+	set <MusicData> _data;
 	int _loadingBar = 0;
 	int _loadingMax = data.size();
 	for (const MusicData& a : data) {
@@ -51,6 +52,33 @@ void show_search(vector<MusicData>& data) {
 	else {
 		cout << "찾는 데이터가 없습니다" << endl;
 	}
+	char key;
+	cout << "\n\nTo Lobby << Press Any Key" << endl;
+	key = _getch();
+	if (key == -32) { //입력받은 값이 확장키 이면
+		key = _getch(); //한번더 입력을 받는다.
+	}
+}
+
+void show_seach_bst(vector<MusicData>& data) {
+	BST bst;
+	int i = 0;
+	for (const auto& a : data) {
+		bst.insert_BST(a.name);
+	}
+	cout << "목록에 노래가 있는지 검색합니다.            " << endl;
+	cout << "원하시는 노래를 입력해주세요 : ";
+	string input;
+	getline(cin, input);
+
+	if (bst.search_BST(input)) {
+		cout << "[ " << input << " ] 가 있습니다.\n" << endl;
+	}
+	else {
+		cout << "[ " << input << " ] 가 없습니다.\n" << endl;
+	}	
+
+
 	char key;
 	cout << "\n\nTo Lobby << Press Any Key" << endl;
 	key = _getch();

@@ -14,7 +14,7 @@ int calcRank(int sort, const MusicData& data) {
 
 		if (data.rank[i] > 0 && data.rank[i]<101) {
 			if (i == sort) {
-				calc += (100 - data.rank[i]) * 20;
+				calc += (100 - data.rank[i]) * 5;
 			}
 			else {
 				calc += (100 - data.rank[i]);
@@ -26,7 +26,7 @@ int calcRank(int sort, const MusicData& data) {
 	}
 
 	//기본추천에서는 View의 가중치는 이정도로
-	calc += data.view_count*10;
+	calc += data.view_count*2;
 
 	return calc;
 }
@@ -39,6 +39,7 @@ void makeVeiwCounts(vector<MusicData>& data)
 
 	cout << "데이터 업데이트 완료" << endl;
 
+	//바로 넘어가지 않게 키 받아주는거
 	char key;
 	key = _getch();
 	if (key == -32) { //입력받은 값이 확장키 이면

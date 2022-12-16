@@ -12,7 +12,7 @@ void musicListmain(const vector<MusicData> &data) {
 
 	cout << "어느지역 음악을 선호하시나요?" << endl;
 	cout << "0.US  1.UK  2.DE  3.FR  4.CA  5.AU  6.랭킹 기반 7.내 재생횟수기반" << endl;
-	cout << "0~5 입력 :";
+	cout << "0~7 입력 :";
 	int input;
 	cin >> input;
 	int i = 0;

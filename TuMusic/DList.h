@@ -12,7 +12,7 @@ class DList
 public:
 	DListNode* phead;
 	vector<MusicData> _data;
-	string listName;
+	string listName;//재생목록 이름
 
 	//생성자
 	

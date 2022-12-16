@@ -36,6 +36,7 @@
 #include "DList.h"
 #include "playList.h"
 
+
 int main() {
 	int scene_select = 0;
 	vector<MusicData> _m_data; //vector는 동적큐와 유사한 자료구조입니다. 
@@ -54,7 +55,8 @@ int main() {
 		
 		switch (scene_select) {
 		case UI::UI_find:
-			show_search(_m_data);
+			//show_search(_m_data);
+			show_seach_bst(_m_data);
 			break;
 		case UI::UI_rank:
 			showrank(_m_data);

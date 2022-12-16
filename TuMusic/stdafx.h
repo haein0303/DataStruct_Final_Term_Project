@@ -5,7 +5,7 @@
 #include <cstdio>
 #include <iostream>
 #include <stdlib.h>
-#include <string.h>
+//#include <string.h>
 #include <cstdlib>
 
 //stl h
