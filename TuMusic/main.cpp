@@ -70,6 +70,9 @@ int main() {
 		case UI::UI_makeViewsCount:
 			makeVeiwCounts(_m_data);
 			break;
+		case UI::UI_makePlayList:
+			make_dummy_playList(_playList, _m_data);
+			break;
 		}
 	}
 	

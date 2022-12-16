@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BST.cpp" />
+    <ClCompile Include="CList.cpp" />
     <ClCompile Include="DList.cpp" />
     <ClCompile Include="fileLoader.cpp" />
     <ClCompile Include="main.cpp" />
@@ -148,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BST.h" />
+    <ClInclude Include="CList.h" />
     <ClInclude Include="DList.h" />
     <ClInclude Include="fileLoader.h" />
     <ClInclude Include="musicList.h" />

@@ -36,6 +36,7 @@ int basicUI() {
 	UI_text.push_back("재생목록");
 	UI_text.push_back("음악추천받기");
 	UI_text.push_back("편의기능 : 재생횟수만들기");
+	UI_text.push_back("편의기능 : 재생목록만들기");
 
 	while (1) {
 		ClearUI();

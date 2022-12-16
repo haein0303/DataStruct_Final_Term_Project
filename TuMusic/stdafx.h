@@ -60,6 +60,7 @@ enum UI {
     UI_Mylist,
     UI_recommend,
     UI_makeViewsCount,
+    UI_makePlayList,
 	UI_counter //마지막 enum 값을 활용해서 전체 갯수를 쉽게 구할 수 있습니다.
 };
 
