@@ -11,9 +11,8 @@ void play_list_main(vector<CList> &playList,vector<MusicData> &data) {
 		string play_list_name_input;
 		getline(cin, play_list_name_input);
 		CList tmp(play_list_name_input);
-	}
-
-	
+		playList.push_back(tmp);
+	}	
 
 	// 플레이 리스트 목록 표시
 	int i = 0;
@@ -67,3 +66,16 @@ void play_list_main(vector<CList> &playList,vector<MusicData> &data) {
 	}
 }
 
+void make_dummy_playList(vector<CList>& playList, vector<MusicData>& data) {
+	CList tmp("운전하면서 듣기 좋은 노래");
+	for (int i = 0; i < 10; ++i) {
+		tmp.insert(0, rand()%100);
+	}	
+	playList.push_back(tmp);
+
+	CList tmp2("공부하면서 듣기 좋은 노래");
+	for (int i = 0; i < 10; ++i) {
+		tmp.insert(0, rand() % 100);
+	}
+	playList.push_back(tmp2);
+}

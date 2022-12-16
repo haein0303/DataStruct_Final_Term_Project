@@ -1,9 +1,9 @@
 #pragma once
 
-#define ELEMENT	string
+#define ELEMENT	int
 
 struct Node {
-	string data;
+	ELEMENT data;
 	struct Node* prev;
 	struct Node* link;
 };
