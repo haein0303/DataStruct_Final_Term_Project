@@ -33,14 +33,14 @@
 #include "Show.h"
 #include "util.h"
 #include "musicList.h"
-#include "DList.h"
+#include "CList.h"
 #include "playList.h"
 
 
 int main() {
 	int scene_select = 0;
 	vector<MusicData> _m_data; //vector는 동적큐와 유사한 자료구조입니다. 
-	vector<DList> _playList; //재생목록입니다.
+	vector<CList> _playList; //재생목록입니다.
 
 
 	//파일 로딩
